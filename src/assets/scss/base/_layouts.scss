@@ -1,0 +1,16 @@
+$measure: "%";
+
+@for $i from 1 through 5 {
+  .pd-#{$i} {
+    padding: #{$i}#{$measure};
+  }
+}
+
+.d-flex-start {
+  display: flex;
+  justify-content: start;
+}
+
+.shadow {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}

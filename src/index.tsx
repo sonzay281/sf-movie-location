@@ -3,14 +3,14 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 
 import store from "store";
-
-import "styles/css/index.css";
-import App from "views/landingPage/App";
 import * as serviceWorker from "./serviceWorker";
+
+import "assets/scss/styles.scss";
+import LandingPage from "views";
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <LandingPage />
   </Provider>,
   document.getElementById("root")
 );
