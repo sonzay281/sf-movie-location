@@ -4,10 +4,8 @@ import { get, post, del, patch } from "apiUtils/api";
 
 export function* fetchData({ payload }: any) {
   try {
-    const {
-      data: { response }
-    } = yield call(get, payload);
-    yield put({ type: payload.onSuccess, response });
+    const {data} = yield call(get, payload);
+    yield put({ type: payload.onSuccess, response:data });
   } catch (error) {
     yield put({ type: payload.onFailure, error });
   }

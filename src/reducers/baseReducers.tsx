@@ -1,5 +1,5 @@
 import Immutable from "immutable";
-import { VALUE_CHANGED, DELETE_VALUE } from "actions";
+import { VALUE_CHANGED, DELETE_VALUE, FETCH_MOVIES_SUCCEEDED } from "actions";
 
 const initialState = Immutable.fromJS({});
 
@@ -14,17 +14,15 @@ const baseReducer = (state = initialState, action: any) => {
     case DELETE_VALUE:
       return state.deleteIn([...action.payload.field.split(".")]);
 
-    /*With mutation example
-    case ACTION:
+    case FETCH_MOVIES_SUCCEEDED:
       return state.withMutations((s: any) => {
-        action.response.forEach((r: any) => s.setIn(['key1', 'key2', r.id], Immutable.fromJS(r)));
+        let movieTitles: string[] = [];
+        action.response.forEach((m: any) => {
+          movieTitles.push(m.title);
+          s.setIn(["movies", m.title, m.locations], Immutable.fromJS(m));
+        });
+        s.set("movieTitles", Array.from(new Set(movieTitles)));
       });
-    */
-
-    /*without mutation
-    case ACTION:
-      return state.set('key', Immutable.fromJS(action.response));
-    */
 
     default:
       return state;
