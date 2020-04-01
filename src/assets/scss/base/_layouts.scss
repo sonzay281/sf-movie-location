@@ -8,9 +8,28 @@ $measure: "%";
 
 .d-flex-start {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 .shadow {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+.scroll {
+  /* width */
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 20px;
+    visibility: hidden;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+  }
+  overflow: auto;
 }
