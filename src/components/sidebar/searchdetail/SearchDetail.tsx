@@ -1,18 +1,49 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretLeft } from "@fortawesome/free-solid-svg-icons";
+import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 
-const SearchDetail = ({ onCollapse }: any) => {
+const SearchDetail = ({ data, onCollapse, isCollapsed }: any) => {
+  const movie = data[0];
   return (
     <>
       <div className="sidebar__search-detail">
-        <div className="detail-wrapper">This is search detail.</div>
+        <div className="detail-wrapper scroll">
+          <h2>{movie.title}</h2>
+          <div>
+            <CreditItem label="Director" value={movie.director} />
+            <CreditItem label="Writer" value={movie.writer} />
+            <CreditItem
+              label="Stars"
+              value={`${movie.actor_1},${movie.actor_2},${movie.actor_3}`}
+            />
+            <CreditItem label="Release Year" value={movie.release_year} />
+
+            <CreditItem
+              label="Production Company"
+              value={movie.production_company}
+            />
+
+          </div>
+          <h3>Locations</h3>
+          {data?.map(({ locations }: any) => (
+            <div key={`location-${locations}`} className="location-detail inline">
+              {locations}
+            </div>
+          ))}
+        </div>
       </div>
       <div className="collapse" onClick={onCollapse}>
-        <FontAwesomeIcon icon={faCaretLeft} />
+        <FontAwesomeIcon icon={!isCollapsed ? faCaretRight : faCaretLeft} />
       </div>
     </>
   );
 };
 
 export default SearchDetail;
+
+const CreditItem = ({ label, value }: any) => (
+  <div className="credit_summary_item">
+    <h4 className="inline">{label}:</h4>
+    {value}
+  </div>
+);
