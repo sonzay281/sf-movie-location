@@ -1,34 +1,32 @@
 import axios from "axios";
 
-import config from "config";
-
 export const http = axios.create({
-  baseURL: config.backend.url,
+  baseURL: process.env.REACT_APP_DATA_BASE_URL,
   headers: {
     "Content-Type": "application/json"
   }
 });
 
-http.interceptors.response.use(
-  response => {
-    if (response?.data?.access_token) {
-      window.localStorage.setItem("token", response.data.access_token);
-    }
-    return response;
-  },
-  error => {
-    const { response } = error;
-    if (response?.status === 401) {
-      window.localStorage.removeItem("token");
-      window.location.pathname = "/";
-    }
-    return Promise.reject(error);
-  }
-);
+// http.interceptors.response.use(
+//   response => {
+//     if (response?.data?.access_token) {
+//       window.localStorage.setItem("token", response.data.access_token);
+//     }
+//     return response;
+//   },
+//   error => {
+//     const { response } = error;
+//     if (response?.status === 401) {
+//       window.localStorage.removeItem("token");
+//       window.location.pathname = "/";
+//     }
+//     return Promise.reject(error);
+//   }
+// );
 
 http.interceptors.request.use(config => {
-  if (!!window.localStorage.getItem("token"))
-    config.headers.Authorization = "Bearer " + localStorage.getItem("token");
+  if (!!process.env.REACT_APP_DATA_APP_TOKEN)
+    config.headers["X-App-Token"] = process.env.REACT_APP_DATA_APP_TOKEN;
   return config;
 });
 

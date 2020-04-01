@@ -7,7 +7,7 @@ interface MapProps {
   zoom?: number;
   addressList?: any;
 }
-console.log(process.env.REACT_APP_MAP_API_KEY)
+
 const GoogleMap = ({
   center = { lat: 27.6855, lng: 85.3458 },
   zoom = 10,
@@ -39,7 +39,8 @@ const GoogleMap = ({
                   Email:{address.email}
                   <br />
                   Phone:{address.phone}
-                </div> */}
+                </div>
+        */}
       </Marker>
     ))}
   </GoogleMapReact>
