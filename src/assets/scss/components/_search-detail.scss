@@ -2,17 +2,30 @@
   top: 0px;
   left: 0px;
   bottom: 0px;
-  padding: 80px 10px;
-  position: absolute;
-  background-color: #fff;
   width: 100%;
+  padding: 80px 0px;
+  padding-bottom: 10px;
+  position: absolute;
+  background-color: $color-white;
   @extend .shadow;
   .detail-wrapper {
-    @extend .pd-1;
-    width: 94%;
-    border: 1px solid #cfcfcf;
-    height: 100%;
-    border-radius: 10px;
-    padding: 3% 2%;
+    width: 86%;
+    padding: 2% 4%;
+    height: 96%;
+    margin: auto;
+    background-color: $color-white;
+    .location-detail {
+      @extend .pd-1;
+      border: 1px solid $color-grey;
+      border-radius: 10px;
+      width: fit-content;
+      margin: 5px 0px;
+    }
+  }
+}
+.credit_summary_item {
+  padding-bottom: 10px;
+  .inline {
+    display: inline;
   }
 }

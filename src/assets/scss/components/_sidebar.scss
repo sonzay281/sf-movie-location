@@ -1,7 +1,11 @@
+.collapsed {
+  left: -435px !important;
+}
+
 .sidebar {
   position: absolute;
-  left: 0;
   top: 0;
+  left: 0;
   bottom: 0;
   width: 30%;
   z-index: 1;
@@ -12,13 +16,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    right: -40px;
+    right: -20px;
     width: 20px;
     height: 50px;
-    background-color: #fff;
+    background-color: $color-white;
     border-left: 1px solid #d4d4d4;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
   }
+  -webkit-transition: cubic-bezier(0.45, 0.05, 0.37, 0.93) 1s;
+  -moz-transition: cubic-bezier(0.45, 0.05, 0.37, 0.93) 1s;
+  -o-transition: cubic-bezier(0.45, 0.05, 0.37, 0.93) 1s;
+  transition: cubic-bezier(0.45, 0.05, 0.37, 0.93) 1s;
 }
 
 @import "search-bar";
