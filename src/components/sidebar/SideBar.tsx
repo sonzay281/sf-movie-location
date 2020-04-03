@@ -1,41 +1,39 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { valueChanged, deleteValue } from "actions/baseActions";
+import { getSelectedMovieDetail } from "reducers/baseReducers";
+
 import SearchBar from "./searchbar/SearchBar";
 import SearchDetail from "./searchdetail/SearchDetail";
-import { useDispatch, useSelector } from "react-redux";
-import { valueChanged } from "actions/baseActions";
 
 const SideBar = () => {
   const dispatch = useDispatch();
   const [showSideBar, setShowSideBar] = useState(true);
 
-  const { movies, selectedMovie, selectedMovieTitle } = useSelector(
+  const { movies, selectedMovieDetail, selectedMovieTitle } = useSelector(
     (state: any) => ({
       movies: state.base.get("movieTitles"),
-      selectedMovie:
-        !!state.base.get("selectedMovieTitle") &&
-        Object.values(
-          state.base
-            .getIn(["movies", state.base.get("selectedMovieTitle")])
-            .toJS()
-        ),
+      selectedMovieDetail: getSelectedMovieDetail(state),
       selectedMovieTitle: state.base.get("selectedMovieTitle")
     })
   );
 
   const onMovieSelect = (value: string) => {
+    onMovieClear();
     dispatch(valueChanged("selectedMovieTitle", value));
   };
 
   const onMovieClear = () => {
-    dispatch(valueChanged("selectedMovieTitle", ""));
+    dispatch(deleteValue("selectedMovieTitle"));
   };
 
   return (
     <div className={`sidebar ${showSideBar ? "" : "collapsed"}`}>
-      {!!selectedMovie ? (
+      {!!selectedMovieDetail ? (
         <SearchDetail
           onCollapse={() => setShowSideBar(!showSideBar)}
-          data={selectedMovie}
+          data={selectedMovieDetail}
           isCollapsed={showSideBar}
         />
       ) : (

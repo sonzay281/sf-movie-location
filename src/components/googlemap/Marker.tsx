@@ -12,7 +12,7 @@ const Marker = ({ children }: any) => {
       }}
       onMouseOut={() => () => setShowDetail(false)}
     >
-      <img src={MarkerImage} alt="" height="20" />
+      <img src={MarkerImage} alt="" height="15" />
       {showDetail ? children : ""}
     </div>
   );

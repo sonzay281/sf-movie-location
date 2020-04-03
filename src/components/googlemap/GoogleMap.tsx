@@ -11,38 +11,32 @@ interface MapProps {
 const GoogleMap = ({
   center = { lat: 27.6855, lng: 85.3458 },
   zoom = 10,
-  addressList
-}: MapProps) => (
-  <GoogleMapReact
-    bootstrapURLKeys={{
-      key: process.env.REACT_APP_MAP_API_KEY || ""
-    }}
-    defaultCenter={center}
-    defaultZoom={zoom}
-    yesIWantToUseGoogleMapApiInternals
-    options={{
-      panControl: false,
-      mapTypeControl: false,
-      fullscreenControl: false,
-      zoomControl: false
-    }}
-  >
-    {addressList?.map((address: any) => (
-      <Marker
-        key={address.id}
-        lat={address.address?.lat}
-        lng={address.address?.lng}
-      >
-        {/* <div className="map-marker--infowindow">
-                  <b>{address.title}</b>
-                  <br />
-                  Email:{address.email}
-                  <br />
-                  Phone:{address.phone}
-                </div>
-        */}
-      </Marker>
-    ))}
-  </GoogleMapReact>
-);
+  addressList = []
+}: MapProps) => {
+  const defaultCenter = center;
+  center =
+    addressList.length && addressList[0].lat ? addressList[0] : undefined;
+  return (
+    <GoogleMapReact
+      bootstrapURLKeys={{
+        key: process.env.REACT_APP_MAP_API_KEY || ""
+      }}
+      defaultCenter={defaultCenter}
+      center={center}
+      defaultZoom={zoom}
+      yesIWantToUseGoogleMapApiInternals
+      options={{
+        panControl: false,
+        mapTypeControl: false,
+        fullscreenControl: false,
+        zoomControl: false
+      }}
+    >
+      {addressList?.map((address: any) => (
+        <Marker key={address.location} lat={address?.lat} lng={address?.lng} />
+      ))}
+    </GoogleMapReact>
+  );
+};
+
 export default GoogleMap;
