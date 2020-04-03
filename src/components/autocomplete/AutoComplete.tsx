@@ -10,7 +10,7 @@ interface AutoComplete {
   items: any;
   onChange: any;
   onClear: any;
-  value: string;
+  value: any;
 }
 const AutoComplete = ({
   id,
@@ -39,14 +39,13 @@ const AutoComplete = ({
         <div className={`${id}-wrapper`}>
           <div className="widget-header-content">
             <input
-              className={id}
               id={id}
-              placeholder={placeholder}
               ref={ref}
-              {...getInputProps()}
+              className={id}
+              placeholder={placeholder}
               onFocus={() => setIsOpen(true)}
               onBlur={() => setIsOpen(false)}
-              value={value}
+              {...getInputProps()}
             />
             <div className="search-icon">
               <FontAwesomeIcon icon={faSearch} />
@@ -63,7 +62,7 @@ const AutoComplete = ({
                     ?.filter((i: any) =>
                       i?.toUpperCase().includes(inputValue?.toUpperCase())
                     )
-                    .map((item: string, index: number) => (
+                    ?.map((item: string, index: number) => (
                       <div
                         className="movie__item padding-content"
                         {...getItemProps({

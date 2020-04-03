@@ -2,12 +2,18 @@ import React from "react";
 import { faFilm } from "@fortawesome/free-solid-svg-icons";
 
 import AutoComplete from "components/autocomplete/AutoComplete";
-import { useDispatch } from "react-redux";
-import { deleteValue } from "actions/baseActions";
-
-const SearchBar = ({ movies, selectedMovieTitle, onSelect, onClear }: any) => {
-  const dispatch = useDispatch();
-  if (selectedMovieTitle === "") dispatch(deleteValue("selectedMovieTitle"));
+interface ISearchBar {
+  movies?: any;
+  selectedMovieTitle?: string;
+  onSelect: any;
+  onClear: any;
+}
+const SearchBar = ({
+  movies = [],
+  selectedMovieTitle,
+  onSelect,
+  onClear
+}: ISearchBar) => {
   return (
     <div className="sidebar__search-bar">
       <AutoComplete

@@ -30,3 +30,22 @@ const baseReducer = (state = initialState, action: any) => {
 };
 
 export default baseReducer;
+
+export const getSelectedMovieDetail = (state: any) => {
+  return (
+    !!state.base.get("selectedMovieTitle") &&
+    Object.values(
+      state.base.getIn(["movies", state.base.get("selectedMovieTitle")]).toJS()
+    )
+  );
+};
+
+export const getSelectedMovieLocations = (state: any) => {
+  return !!state.base.get("selectedMovieTitle")
+    ? Object.keys(
+        state.base
+          .getIn(["movies", state.base.get("selectedMovieTitle")])
+          .toJS()
+      )
+    : [];
+};

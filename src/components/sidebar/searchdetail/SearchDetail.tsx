@@ -4,6 +4,7 @@ import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 
 const SearchDetail = ({ data, onCollapse, isCollapsed }: any) => {
   const movie = data[0];
+  const locations = data?.map(({ locations }: any) => locations).sort();
   return (
     <>
       <div className="sidebar__search-detail">
@@ -22,13 +23,10 @@ const SearchDetail = ({ data, onCollapse, isCollapsed }: any) => {
               label="Production Company"
               value={movie.production_company}
             />
-
           </div>
           <h3>Locations</h3>
-          {data?.map(({ locations }: any) => (
-            <div key={`location-${locations}`} className="location-detail inline">
-              {locations}
-            </div>
+          {locations?.map((location: any) => (
+            <Location key={location} value={location} />
           ))}
         </div>
       </div>
@@ -44,6 +42,12 @@ export default SearchDetail;
 const CreditItem = ({ label, value }: any) => (
   <div className="credit_summary_item">
     <h4 className="inline">{label}:</h4>
+    {value}
+  </div>
+);
+
+const Location = ({ value }: any) => (
+  <div key={`location-${value}`} className="location-detail inline">
     {value}
   </div>
 );
