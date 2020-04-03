@@ -45,7 +45,7 @@
   .widget--opened {
     background: $color-white;
     height: fit-content;
-    max-height: 200px;
+    max-height: 195px;
     @extend .shadow;
     li {
       cursor: pointer;
@@ -54,7 +54,6 @@
       }
     }
     .location__list {
-      max-height: 300px;
       overflow: auto;
       left: 0;
       right: 0;
@@ -66,7 +65,7 @@
       &:hover {
         background: #f4f4f4;
       }
-      height: 35px;
+      height: 30px;
       display: flex;
       justify-content: flex-start;
       align-items: center;
