@@ -1,15 +1,37 @@
+.gmnoprint {
+  right: 0px;
+  bottom: 10px;
+  top: unset !important;
+  left: unset !important;
+}
+.gm-bundled-control {
+  right: 0px !important;
+}
 .map-marker {
-  height: 15px;
+  position: absolute;
+  height: 20px;
   width: 100px;
   left: -10px;
   top: -20px;
-  position: absolute;
-  &--infowindow {
-    position: absolute;
+  .info-window {
+    background-color: $color-white;
+    position: relative;
+    min-height: 30px;
+    width: 200px;
     padding: 10px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    top: 30px;
-    width: fit-content;
-    background: #fff;
+    border-radius: 10px;
+    font-family: monospace;
+    font-size: small;
+    @extend .shadow;
+    .close {
+      position: absolute;
+      right: 5px;
+      top: 3px;
+      font-size: small;
+      color: $color-grey;
+      :hover {
+        color: skyblue;
+      }
+    }
   }
 }

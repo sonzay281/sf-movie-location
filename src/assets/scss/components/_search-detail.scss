@@ -1,11 +1,11 @@
 .sidebar__search-detail {
   top: 0px;
   left: 0px;
+  position: absolute;
   bottom: 0px;
   width: 100%;
   padding: 80px 0px;
   padding-bottom: 10px;
-  position: absolute;
   background-color: $color-white;
   @extend .shadow;
   .detail-wrapper {

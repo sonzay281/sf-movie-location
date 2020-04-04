@@ -1,11 +1,13 @@
 $color-white: #fff;
 $color-grey: #cfcfcf;
-
-@import "base/layouts";
-@import "components/all";
-@import "views/all";
+$color-warn: rgb(255, 115, 0);
+$color-success: rgb(1, 255, 22);
 
 body {
   margin: 0px;
   padding: 0px;
 }
+
+@import "base/base";
+@import "components/all";
+@import "views/all";

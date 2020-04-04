@@ -1,9 +1,9 @@
 import {
-  VALUE_CHANGED,
   DELETE_VALUE,
   FETCH_MOVIES,
-  FETCH_MOVIES_SUCCEEDED,
-  FETCH_MOVIES_FAILED
+  VALUE_CHANGED,
+  FETCH_MOVIES_FAILED,
+  FETCH_MOVIES_SUCCEEDED
 } from "actions";
 
 export const valueChanged = (field: string, value: any) => ({
@@ -19,21 +19,8 @@ export const deleteValue = (field: string) => ({
 export const fetchAllMovies = () => ({
   type: FETCH_MOVIES,
   payload: {
-    // url: "/yitu-d5am.json",
-    url: "movies.json",
+    url: "/yitu-d5am.json",
     onSuccess: FETCH_MOVIES_SUCCEEDED,
     onFailure: FETCH_MOVIES_FAILED
   }
-});
-
-export const createAction = (data: any) => ({
-  /*
-    type: CREATE,
-    payload: {
-      url: '/create',
-      data,
-      onSuccess: CREATE_SUCCEEDED,
-      onFailure: CREATE_FAILED
-    }
-  */
 });

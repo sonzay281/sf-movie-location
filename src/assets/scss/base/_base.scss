@@ -14,6 +14,15 @@ $measure: "%";
 .shadow {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
+
+.border-warn {
+  border: 1px solid $color-warn !important;
+}
+
+.border-success {
+  border: 1px solid $color-success !important;
+}
+
 .scroll {
   /* width */
   &::-webkit-scrollbar {

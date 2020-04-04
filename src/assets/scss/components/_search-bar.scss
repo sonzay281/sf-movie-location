@@ -10,74 +10,69 @@
   justify-content: space-between;
   .search-box-wrapper {
     width: 100%;
-  }
-  .widget-header-content {
-    display: flex;
-    align-items: center;
-    .search-icon,
-    .clear {
-      width: 10%;
-      height: 35px;
-      color: $color-grey;
-      display: inherit;
-      justify-content: center;
-      align-items: inherit;
-      &:hover {
-        color: skyblue;
-      }
-    }
-    .clear {
-      border-left: 1px solid $color-grey;
-    }
-
-    .search-box {
-      overflow: hidden;
-      height: 40px;
-      width: 80%;
-      font-size: 16px;
-      padding: 0px 10px;
-      border: none;
-      margin: 5px 7px;
-      outline: none;
-    }
-  }
-
-  .widget--opened {
-    background: $color-white;
-    height: fit-content;
-    max-height: 195px;
-    @extend .shadow;
-    li {
-      cursor: pointer;
-      &:hover {
-        background: $color-grey;
-      }
-    }
-    .location__list {
-      overflow: auto;
-      left: 0;
-      right: 0;
-
-      @extend .shadow;
-    }
-    .movie__item {
-      cursor: pointer;
-      &:hover {
-        background: #f4f4f4;
-      }
-      height: 30px;
+    .widget-header-content {
       display: flex;
-      justify-content: flex-start;
       align-items: center;
-      padding: 5px 20px;
-    }
-    .padding-content {
-      padding: 5px 20px;
+      .search-icon,
+      .clear {
+        width: 10%;
+        height: 35px;
+        color: $color-grey;
+        display: inherit;
+        justify-content: center;
+        align-items: inherit;
+        &:hover {
+          color: skyblue;
+        }
+      }
+      .clear {
+        border-left: 1px solid $color-grey;
+      }
+
+      .search-box {
+        overflow: hidden;
+        height: 40px;
+        width: 80%;
+        font-size: 16px;
+        padding: 0px 10px;
+        border: none;
+        margin: 5px 7px;
+        outline: none;
+      }
     }
 
-    -webkit-transition: cubic-bezier(0.45, 0.05, 0.37, 0.93) 1s;
-    -moz-transition: cubic-bezier(0.45, 0.05, 0.37, 0.93) 1s;
-    -o-transition: cubic-bezier(0.45, 0.05, 0.37, 0.93) 1s;
-    transition: cubic-bezier(0.45, 0.05, 0.37, 0.93) 1s;
+    .widget--opened {
+      background: $color-white;
+      height: fit-content;
+      max-height: 195px;
+      @extend .shadow;
+      li {
+        cursor: pointer;
+        &:hover {
+          background: $color-grey;
+        }
+      }
+      .location__list {
+        overflow: auto;
+        left: 0;
+        right: 0;
+
+        @extend .shadow;
+      }
+      .movie__item {
+        cursor: pointer;
+        &:hover {
+          background: #f4f4f4;
+        }
+        height: 30px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 5px 20px;
+      }
+      .padding-content {
+        padding: 5px 20px;
+      }
+    }
   }
 }
