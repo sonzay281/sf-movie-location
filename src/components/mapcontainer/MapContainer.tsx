@@ -1,12 +1,12 @@
-import React from "react";
-import MapBanner from "components/googlemap/GoogleMap";
+import React, { memo } from "react";
+import GoogleMap from "components/googlemap/GoogleMap";
 
-const MapContainer = () => {
+const MapContainer = memo(({ addressList }: any) => {
   return (
     <div className="map-container">
-      <MapBanner />
+      <GoogleMap addressList={addressList} />
     </div>
   );
-};
+});
 
 export default MapContainer;
