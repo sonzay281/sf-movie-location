@@ -3,15 +3,12 @@ import Downshift from "downshift";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faSearch } from "@fortawesome/free-solid-svg-icons";
 
-interface AutoComplete {
-  id: string;
-  placeholder?: string;
-  listIcon?: any;
-  items: any;
-  onChange: any;
-  onClear: any;
-  value: any;
-}
+/***
+ * @param listIcon an icon to show in option list
+ * @param items list of items to show as options
+ * @param onChange an event handler to select data
+ * @param onClear an event handler to clear the selected value
+ */
 const AutoComplete = ({
   id,
   placeholder,
@@ -19,10 +16,11 @@ const AutoComplete = ({
   items,
   onChange,
   value,
-  onClear
+  onClear,
 }: AutoComplete) => {
-  const [isOpen, setIsOpen] = useState(false);
   const ref: any = useRef(null);
+  const [isOpen, setIsOpen] = useState(false);
+
   const onClick = () => {
     setIsOpen(false);
     ref.current.blur();
@@ -66,9 +64,9 @@ const AutoComplete = ({
                       <div
                         className="movie__item padding-content"
                         {...getItemProps({
-                          key: item,
+                          item,
                           index,
-                          item
+                          key: item,
                         })}
                       >
                         {listIcon && (
@@ -90,3 +88,13 @@ const AutoComplete = ({
 };
 
 export default AutoComplete;
+
+interface AutoComplete {
+  id: string;
+  items: any;
+  value: any;
+  onClear: any;
+  onChange: any;
+  listIcon?: any;
+  placeholder?: string;
+}

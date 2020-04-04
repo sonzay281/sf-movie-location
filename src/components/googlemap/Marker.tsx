@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 
 import MarkerImage from "assets/icons/marker.png";
-
+/**
+ *
+ * @param children children element i.e info window
+ */
 const Marker = ({ children }: any) => {
   const [showDetail, setShowDetail] = useState(false);
   return (
@@ -12,7 +15,7 @@ const Marker = ({ children }: any) => {
       }}
       onMouseOut={() => () => setShowDetail(false)}
     >
-      <img src={MarkerImage} alt="" height="15" />
+      <img src={MarkerImage} alt="" height="20" />
       {showDetail ? children : ""}
     </div>
   );
