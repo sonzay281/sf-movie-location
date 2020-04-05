@@ -1,6 +1,6 @@
 This project was bootstrapped with [React Project Template ](https://github.com/sonzay281/react-project-template-ts).
 
-# [SF Movie Location](https://sfmovies.netlify.com/)
+# SF Movie Location [![Netlify Status](https://api.netlify.com/api/v1/badges/f3846c81-ca7c-46ad-917b-3a1a5e3c8db6/deploy-status)](https://app.netlify.com/sites/sfmovies/deploys)
 
 SF Movie Location is a web service which shows the movie filmed locations in San Francisco,USA.
 
