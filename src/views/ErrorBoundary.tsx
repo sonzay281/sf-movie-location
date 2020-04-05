@@ -22,7 +22,7 @@ class ErrorBoundary extends Component {
     withScope((scope) => {
       scope.setExtras(errorInfo);
       const eventId = captureException(error);
-      this.setState({ eventId });
+      this.setState({ eventId, hasError: true });
     });
   }
 
@@ -37,7 +37,7 @@ class ErrorBoundary extends Component {
       );
     }
     //when there's not an error, render children untouched
-    return this.props.children;
+    else return this.props.children;
   }
 }
 
