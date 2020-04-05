@@ -1,5 +1,6 @@
 /**
  * Personal utility library to convert the (lat,lng) to address and vice versa.
+ * It wont be available in git, please try alternatives
  */
 import GoogleGeocode from "./google-geocode/src/index";
 const API_KEY = process.env.REACT_APP_MAP_API_KEY;
