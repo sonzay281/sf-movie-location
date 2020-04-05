@@ -1,44 +1,59 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [React Project Template ](https://github.com/sonzay281/react-project-template-ts).
 
-## Available Scripts
+# SF Movie Location
 
-In the project directory, you can run:
+SF Movie Location is a web service which shows the movie filmed locations in San Francisco,USA.
 
-### `yarn start`
+The initial requirement was to make a web service that shows on a map where movies have been filmed in San Francisco. The user should be able to filter the view using autocompletion search.
+As per the requirement, this web service works exactly as per the requirements.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The service is fully frontend focused and fetching the movie detail from an open source API [data.sfgov.org](https://data.sfgov.org/resource/yitu-d5am.json) and using Google Map API for location purpose.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Trade-offs
 
-### `yarn test`
+Every thing is fulfilled as per the requirements but still there are few things that can be done in future release. Some of them includes fetching the `rating`, `poster` from `IMDB` api.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+There is one package for location to lat,lng which only includes in build but not in source available here in git. The pin points may not appear if you run without the package. Please let me know if you want to actualy try the code.
 
-### `yarn build`
+## Getting Started
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Installing
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+For of all, pull the project in your machine, navigate to the folder Open `Command Prompt` or `Terminal` and hit
 
-### `yarn eject`
+```
+yarn
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+This will install all the package required for the project. Now, hit
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+yarn start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+to run the project in your local env. Once the project is open, there's a search bar in the top-left side, type any name and select any moive name.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+You can see the search detail bar bolow the search bar, the detail section includes the crew detail and locations where the movie was filmed.
 
-## Learn More
+In the map, you can see the pin points which indicates where the movie were filmed.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Built With
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [ReactJs](https://reactjs.org/) - The frontend web framework used
+- [Yarn](https://yarnpkg.com/) - Node Package Management
+- [Typescript](https://www.typescriptlang.org/) - Open source Programming Language maintained by microsoft
+
+## Authors
+
+- **Sanjaya Sapkota** - _Initial work_ - [sonzay281](https://github.com/sonzay281)
+
+## License
+
+This project is licensed under the MIT License
+MIT © [sonzay281](https://github.com/sonzay281)
+
+## Acknowledgments
+
+Thanks to [PurpleBooth](https://github.com/PurpleBooth) for this awesome Readme.md template.
