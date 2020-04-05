@@ -9,6 +9,8 @@ As per the requirement, this web service works exactly as per the requirements.
 
 The service is fully frontend focused and fetching the movie detail from an open source API [data.sfgov.org](https://data.sfgov.org/resource/yitu-d5am.json) and using Google Map API for location purpose.
 
+This service is hosted in [https://sfmovies.netlify.com/](https://sfmovies.netlify.com/)
+
 ## Trade-offs
 
 Every thing is fulfilled as per the requirements but still there are few things that can be done in future release. Some of them includes fetching the `rating`, `poster` from `IMDB` api.
