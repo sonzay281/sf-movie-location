@@ -15,7 +15,7 @@
  */
 export const getLatLng = (location: string) => {
   // return Geocode.fromAddress(location).then((result) => result) || {};
-  return {};
+  return { lat: undefined, lng: undefined };
 };
 
 /**
