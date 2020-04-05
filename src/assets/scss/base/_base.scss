@@ -22,7 +22,9 @@ $measure: "%";
 .border-success {
   border: 1px solid $color-success !important;
 }
-
+.warn {
+  color: $color-warn;
+}
 .scroll {
   /* width */
   &::-webkit-scrollbar {

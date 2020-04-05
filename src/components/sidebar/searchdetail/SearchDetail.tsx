@@ -41,17 +41,19 @@ const SearchDetail = ({
           </div>
           <h3>Locations</h3>
 
-          {locations.length ? (
-            locations.map(({ value, isVarified }: any) => (
-              <Location key={value} value={value} varified={isVarified} />
-            ))
+          {!!locations[0].value ? (
+            <>
+              {locations.map(({ value, isVarified }: any) => (
+                <Location key={value} value={value} varified={isVarified} />
+              ))}
+              <small>
+                <strong>Note*:</strong>Orange border indicate the unverified
+                address.
+              </small>
+            </>
           ) : (
-            <strong>No locations available.</strong>
+            <strong className="warn">No locations available.</strong>
           )}
-          <small>
-            <strong>Note*:</strong>Orange border indicate the unverified
-            address.
-          </small>
         </div>
       </div>
       <div className="collapse" onClick={onCollapse}>
