@@ -21,11 +21,11 @@ const SearchBar = ({
       <AutoComplete
         id="search-box"
         placeholder="Search a movie by Title"
+        listIcon={faFilm}
+        onClear={onClear}
         items={movieTitles}
         onChange={onSelect}
         value={selectedMovieTitle}
-        listIcon={faFilm}
-        onClear={onClear}
       />
     </div>
   );

@@ -1,8 +1,9 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
-import Marker from "./Marker";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import Marker from "./Marker";
 
 /**
  *
@@ -47,7 +48,7 @@ const GoogleMap = ({
 export default GoogleMap;
 
 interface MapProps {
-  center?: any;
+  center?: { lat: number; lng: number };
   zoom?: number;
   addressList?: any;
 }

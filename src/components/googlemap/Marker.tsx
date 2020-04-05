@@ -5,8 +5,8 @@ import MarkerImage from "assets/icons/marker.png";
  *
  * @param children children element i.e info window
  */
-const Marker = ({ children }: any) => {
-  const [showDetail, setShowDetail] = useState(false);
+const Marker = ({ children, isInfoVisible = false }: any) => {
+  const [showDetail, setShowDetail] = useState(isInfoVisible);
   return (
     <div
       className="map-marker"

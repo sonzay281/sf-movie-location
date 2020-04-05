@@ -25,7 +25,7 @@ const SideBar = memo(({ addressList }: any) => {
   const { movieTitles, selectedMovieDetail, selectedMovieTitle } = useSelector(
     (state: any) => ({
       movieTitles: state.base.get("movieTitles"),
-      selectedMovieDetail: getSelectedMovieDetail(state),
+      selectedMovieDetail: getSelectedMovieDetail(state) || [],
       selectedMovieTitle: state.base.get("selectedMovieTitle"),
     })
   );
@@ -37,14 +37,21 @@ const SideBar = memo(({ addressList }: any) => {
 
   const onMovieClear = () => dispatch(deleteValue("selectedMovieTitle"));
 
+  const locations = selectedMovieDetail
+    ?.map(({ locations }: any) => ({
+      value: locations,
+      isVarified: addressList.includes(locations),
+    }))
+    .sort();
+
   return (
     <div className={`sidebar ${showSideBar ? "" : "collapsed"}`}>
-      {!!selectedMovieDetail ? (
+      {!!selectedMovieDetail.length ? (
         <SearchDetail
           onCollapse={() => setShowSideBar(!showSideBar)}
-          movieDetails={selectedMovieDetail}
+          movieDetail={selectedMovieDetail[0]}
           isCollapsed={showSideBar}
-          addressList={addressList}
+          locations={locations}
         />
       ) : (
         ""
